@@ -85,7 +85,7 @@ def search_by_zipcode(zipcode):
     return jsonify(return_list)
 
 @app.route("/api/v1.0/search/name_zip/<name>/<zipcode>")    
-def search_by_name_zip(name, zipcode):
+def search_by_name_zipcode(name, zipcode):
     # normalize variables for optimal search results
     name = name.lower()
     name = re.sub("\'(.*)", "", name)
