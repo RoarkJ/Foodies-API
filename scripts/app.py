@@ -18,8 +18,10 @@ def index():
         "<div style='text-align: center;'>"
         "<strong>Search by Name:</strong> /api/v1.0/search/name/{restaurant_name}<br/><br/>"
         "<strong>Search by City:</strong> /api/v1.0/search/city/{city_name}<br/><br/>"
+        "<strong>Search by Name and City:</strong> /api/v1.0/search/name_city/{restaurant_name}/{city_name}<br/><br/>"
         "<strong>Search by Zip Code:</strong> /api/v1.0/search/zipcode/{zip_code}<br/><br/>"
         "<strong>Search by Phone Number:</strong> /api/v1.0/search/phone/{phone_number}<br/><br/>"
+
         "</div>"
     )
 
@@ -51,6 +53,24 @@ def search_by_city(city):
         restaurant.pop("_id")
         return_list.append(restaurant)
     
+    return jsonify(return_list)
+
+@app.route("/api/v1.0/search/name_city/<name>/<city>")    
+def search_by_name_city(name, city):
+    # normalize variables for optimal search results
+    name = name.lower()
+    name = re.sub("\'(.*)", "", name)
+    name = name.replace(" ","-")
+    city = city.title()
+    # search all alias names for match
+    return_list = []
+    # retrieve all records in db
+    for restaurant in db.yelp.find({"location.city":city}):
+        if name in restaurant["alias"]:
+            # remove mongodb's "_id" field (incompatable with jsonify)
+            restaurant.pop("_id")
+            return_list.append(restaurant)
+
     return jsonify(return_list)
 
 @app.route("/api/v1.0/search/zipcode/<zipcode>")
