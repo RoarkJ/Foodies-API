@@ -21,7 +21,6 @@ def index():
         "<strong>Search by Name and City:</strong> /api/v1.0/search/name_city/{restaurant_name}/{city_name}<br/><br/>"
         "<strong>Search by Zip Code:</strong> /api/v1.0/search/zipcode/{zip_code}<br/><br/>"
         "<strong>Search by Phone Number:</strong> /api/v1.0/search/phone/{phone_number}<br/><br/>"
-
         "</div>"
     )
 
