@@ -20,8 +20,9 @@ def index():
         "<strong>Search by City:</strong> /api/v1.0/search/city/{city name}<br/><br/>"
         "<strong>Search by Name and City:</strong> /api/v1.0/search/name_city/{restaurant name}/{city name}<br/><br/>"
         "<strong>Search by Zip Code:</strong> /api/v1.0/search/zipcode/{zip code}<br/><br/>"
-        "<strong>Search by Name and Zip Code:</strong> /api/v1.0/search/name_zip/{restaurant name}/{zip code}<br/><br/>"
+        "<strong>Search by Name and Zip Code:</strong> /api/v1.0/search/name_zipcode/{restaurant name}/{zip code}<br/><br/>"
         "<strong>Search by Phone Number:</strong> /api/v1.0/search/phone/{phone number}<br/><br/>"
+        "<strong>Total Record Count:</strong> /api/v1.0/search/zipcode_count<br/><br/>"
         "</div>"
     )
 
@@ -84,7 +85,7 @@ def search_by_zipcode(zipcode):
     
     return jsonify(return_list)
 
-@app.route("/api/v1.0/search/name_zip/<name>/<zipcode>")    
+@app.route("/api/v1.0/search/name_zipcode/<name>/<zipcode>")    
 def search_by_name_zipcode(name, zipcode):
     # normalize variables for optimal search results
     name = name.lower()
@@ -112,6 +113,18 @@ def search_by_phone(phone):
         restaurant.pop("_id")
         return_list.append(restaurant)
         
+    return jsonify(return_list)
+
+@app.route("/api/v1.0/search/zipcode_count")
+def zipcode_restaurant_count():
+	# retrieve total count of records
+    zip_code_restaurant_count =db.yelp.aggregate([{"$group": {"_id": "location.zip_code", "Total Record Count" : {"$sum": 1}}}])
+    return_list = []
+    for restaurant in zip_code_restaurant_count:
+        # remove mongodb's "_id" field (incompatable with jsonify)
+        restaurant.pop("_id")
+        return_list.append(restaurant)
+
     return jsonify(return_list)
 
 
