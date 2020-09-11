@@ -23,8 +23,9 @@ In our dataset gathered from eritc we observed that there were repeated restaura
 Data Loading:
 
 Since we used MongoDB our data set is “flat”.  That is to say, it is document based.  We choose this data management infrastructure because the data we are collecting is not complex.  The data is only of the type “restaurant”.  We do not have other data that would be considered heterogenous to the restaurant data.  For example, if we were to at some point want to provide data regarding the city the restaurant is in or a dataset of annual events in the area where the restaurant is located.  The incorporation of this additional information would lead us to consider a relational data management system as possibly being a more appropriate management system to move our data.   We would only do this for the organization and efficient management of our data.  As our resource of data grows and expands into a multitude of category types.  Though we will likely weigh all of our data management options as our project becomes larger and more complex.  This being said, we could almost certainly, successfully, stay with the document data model and be just fine.  Other reasons we chose the document model for our data is the ease of getting up and running compared to a relational model.  Also, accessing data is overall faster with our document model.  Another benefit is we need less code to access and manage our dataset with the document model.
- ##      eritc base data
-![Alt eritc_base_data](/images/eritc_base_data.png)
+ eritc base data | yelp data expansion
+ --------------- | -------------------
+![Alt eritc_base_data](/images/eritc_base_data.png) | ![Alt yelp_data_expamsion](/images/yelp_data_expansion.png)
 
 API:
 
