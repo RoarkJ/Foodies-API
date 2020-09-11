@@ -20,7 +20,7 @@ Data Transformation:
 
 In our dataset gathered from eritc we observed that there were repeated restaurants.  In order to clean the data of repeated records we added code to our Yelp API query script to check for duplicates in the data that Yelp returned to our queries.  This duplicate data was skipped over and not added to the container of data we were gathering to place in our new collection/table of data we were creating with the Yelp data.  So, in this way we are able to gather more data and efficiently clean our data of duplicates as parts of the same larger process.  Further, if a restaurant that was in our original eritc dataset was not found on Yelp we dropped those records.  We based this decision on the presupposition that: The Yelp data is comparatively more reliable than eritc data due to Yelp’s extensive use by consumers and the extensive resources that Yelp has to improve/maintain their dataset.  And thusly, if the restaurant we are searching for with eritc data is not in the Yelp dataset we concluded the specific restaurant data, we had from eritc was either inaccurate or the restaurant is no longer in business.
 eritc base data | yelp data expansion
- --------------- | -------------------
+ :---------------: | :-------------------:
 ![Alt eritc_base_data](/images/eritc_base_data.png) | ![Alt yelp_data_expamsion](/images/yelp_data_expansion.png)
 
 
