@@ -27,7 +27,9 @@ Since we used MongoDB our data set is “flat”.  That is to say, it is documen
 API:
 
 Our API provides multiple access points to retrieve data.  We have an index page that provide a list of query paths to access our restaurant data.  Individual records can be returned via a restaurant by name query string.  A query string is provided to query restaurant by city. This is useful in the case where a particular restaurant has locations in multiple cities.  Our API further provides a query path for accessing a list of restaurants by zip code.  Additionally, our API provides a query path for finding a specific restaurant by name and zip code.  This is an alternate method to the query by city and restaurant name.  A query string is provided to access restaurant data by restaurant phone number.  Lastly, we provide a query string to access a count of restaurants by zip code.  This data is readily usable to create a bar chart illustrating which zip codes have more or fewer restaurants.  A future further extension of this concept will be to provide the restaurant count by city.
+
 Final Thought:
+
 This project accomplishes all of the resources and functionality we envisioned at the beginning of our project.  We plan on continuing to add functionality to this API providing additionally relevant information about events and city statistics as mentioned above. Perhaps in the future we will add an HTML graphical user interface for non-technically inclined interested parties.
 
 
