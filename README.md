@@ -30,7 +30,7 @@ Our API provides multiple access points to retrieve data.  We have an index page
 
 Final Thought:
 
-This project accomplishes all of the resources and functionality we envisioned at the beginning of our project.  We plan on continuing to add functionality to this API providing additionally relevant information about events and city statistics as mentioned above. Perhaps in the future we will add an HTML graphical user interface for non-technically inclined interested parties.
+This project accomplishes all of the resource provisioning and functionality we envisioned at the beginning of our project.  We plan on continuing to add functionality to this API providing additionally relevant information about events and city statistics as mentioned above. Perhaps in the future we will add an HTML graphical user interface for non-technically inclined interested parties.
 
 
 
